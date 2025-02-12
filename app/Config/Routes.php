@@ -9,6 +9,7 @@ use App\Controllers\Article;
 $routes->get('/', 'Home::index');
 $routes->get('/article', [Article::class, 'index']);
 $routes->get('/article/detail/(:num)', [Article::class, 'detail/$1']);
+$routes->get('/article/detail/(:segment)', [Article::class, 'detailBySlug/$1']);
 $routes->get('/article/create', [Article::class, 'create']);
 $routes->post('/article/create', [Article::class, 'store']);
 $routes->get('/article/edit/(:num)', [Article::class, 'edit/$1']);

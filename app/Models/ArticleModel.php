@@ -34,6 +34,15 @@ class ArticleModel extends Model
         }
     }
 
+    public function getArticleBySlug($slug)
+    {
+        foreach ($this->articles as $article) {
+            if ($article->getSlug() === $slug) {
+                return $article;
+            }
+        }
+    }
+
     public function addArticle(ArticleEntity $dataArticle)
     {
         $this->articles[] =  $dataArticle;

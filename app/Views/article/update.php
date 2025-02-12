@@ -9,9 +9,14 @@
 
 <body>
     <h1>Create Article</h1>
-    <form action="/article/create" method="post">
+    <form action="/article/update" method="post">
+        <?= csrf_field(); ?>
+        <input type="hidden" name="_method" value="PUT">
+        
         <label for="id">Id:</label>
         <input id="id" type="text" name="id" value="<?= $article->getId(); ?>" required><br>
+        <label for="slug">Slug:</label>
+        <input slug="slug" type="text" name="slug" value="<?= $article->getSlug(); ?>" required><br>
         <label for="title">Title:</label>
         <input id="title" type="text" name="title" value="<?= $article->getTitle(); ?>" required><br>
         <label for="content">Content</label>

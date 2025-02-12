@@ -4,13 +4,14 @@ namespace App\Entities;
 
 class ArticleEntity
 {
-    private $id, $title, $content;
+    private $id, $title, $content, $slug;
 
     public function __construct(array $data)
     {
         $this->id = $data['id'] ?? '';
         $this->title = $data['title'] ?? '';
         $this->content = $data['content'] ?? '';
+        $this->slug = $data['slug'] ?? '';
     }
 
     public function getId()
@@ -36,5 +37,15 @@ class ArticleEntity
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 }

@@ -11,6 +11,7 @@ class Article extends BaseController
 
     public function __construct()
     {
+        helper('text');
         $this->articleModel = new ArticleModel();
     }
 
@@ -28,6 +29,13 @@ class Article extends BaseController
         return view('article/detail', ['article' => $article]);
     }
 
+    public function detailBySlug($slug)
+    {
+        $article = $this->articleModel->getArticleBySlug($slug);
+
+        return view('article/detail', ['article' => $article]);
+    }
+
     public function create()
     {
         return view('article/create');
@@ -36,6 +44,7 @@ class Article extends BaseController
     public function store()
     {
         $dataArticle = $this->request->getPost();
+        $dataArticle['slug'] = generateSlug($dataArticle['title']);
         $article = new ArticleEntity($dataArticle);
         $this->articleModel->addArticle($article);
 
