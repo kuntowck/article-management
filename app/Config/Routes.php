@@ -21,3 +21,5 @@ $routes->group('article', function ($routes) {
     $routes->put('update', [Article::class, 'update']);
     $routes->delete('delete/(:num)', [Article::class, 'delete/$1']);
 });
+
+$routes->set404Override('App\Controllers\Errors::show404');
