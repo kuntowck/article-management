@@ -61,6 +61,7 @@ class Article extends BaseController
     public function update()
     {
         $dataArticle = $this->request->getPost();
+        $dataArticle['slug'] = generateSlug($dataArticle['title']);
         $updatedArticle = new ArticleEntity($dataArticle);
         $this->articleModel->updateArticle($updatedArticle);
 

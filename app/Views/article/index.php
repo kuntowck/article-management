@@ -23,7 +23,7 @@
                 <td><?= $article->getTitle() ?></td>
                 <td><?= $article->getContent() ?></td>
                 <td>
-                    <a href="/article/detail/<?= $article->getSlug() ?>">Detail</a>
+                    <a href="<?= route_to('articleDetail', $article->getSlug()) ?>">Detail</a>
                     <a href="/article/edit/<?= $article->getId() ?>">Edit</a>
                     <form action="/article/delete/<?= $article->getId() ?>" method="post">
                         <?= csrf_field(); ?>
